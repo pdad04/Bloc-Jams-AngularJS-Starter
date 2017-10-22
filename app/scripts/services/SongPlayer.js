@@ -45,6 +45,7 @@
     * @param {object} song
     */
     var playSong = function(song){
+      SongPlayer.setVolume(SongPlayer.volume);
       currentBuzzObject.play();
       song.playing = true;
     }
@@ -63,6 +64,12 @@
     var getSongIndex = function(song) {
       return currentAlbum.songs.indexOf(song);
     }
+
+    /**
+    * @desc Value of the volume
+    * @type {Number}
+    */
+    SongPlayer.volume = 80;
 
     /**
     * @desc Active song object from list of songs
@@ -146,6 +153,17 @@
     SongPlayer.setCurrentTime = function(time){
       if(currentBuzzObject){
         currentBuzzObject.setTime(time);
+      }
+    }
+
+    /**
+    * @function setVolume
+    * @desc Update volume of playback
+    */
+    SongPlayer.setVolume = function(volume) {
+      if(currentBuzzObject){
+        currentBuzzObject.setVolume(volume);
+        SongPlayer.volume = volume;
       }
     }
 
