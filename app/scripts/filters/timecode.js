@@ -1,7 +1,7 @@
 (function() {
-  function timecode() {
+  function timecode(SongPlayer) {
     return function(seconds) {
-      var seconds = Number.parseFloat(seconds);
+      /*var seconds = Number.parseFloat(seconds);
 
       if(Number.isNaN(seconds)){
         return '-:--';
@@ -16,9 +16,14 @@
         output += '0';
       }
 
-      output += remainingSeconds;
+      output += remainingSeconds;*/
+        var seconds = Number.parseFloat(seconds);
 
-      return output;
+        if(Number.isNaN(seconds)) {
+          return '-:--';
+        }
+
+        return SongPlayer.toTimer(seconds);
     };
   }
 
