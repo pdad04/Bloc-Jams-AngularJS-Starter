@@ -157,16 +157,6 @@
     }
 
     /**
-    * @function toTimer
-    * @desc convert time to easy readable time
-    * @param {Number} seconds
-    * @return number (time)
-    */
-    SongPlayer.toTimer = function(seconds){
-      return buzz.toTimer(seconds);
-    }
-
-    /**
     * @function setVolume
     * @desc Update volume of playback
     */
