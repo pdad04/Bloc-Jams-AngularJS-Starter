@@ -44,7 +44,7 @@
     margin-right: 16.5%;
 }
 
-.player-bar .main-controls .play-pause {
+.player-bar .main-controls .play-pause{
     margin-right: 15%;
     font-size: 1.6rem;
 }
@@ -172,13 +172,13 @@
         margin: 0 auto;
         padding: 0;
         width: 100%;
-        text-align: center;   
+        text-align: center;
     }
-    
+
     .player-bar .main-controls {
         min-height: 3.5rem;
     }
-    
+
     .player-bar .currently-playing {
         min-height: 2.5rem;
     }
@@ -187,11 +187,11 @@
         min-height: 3.5rem;
     }
 
-    .artist-name, 
+    .artist-name,
     .song-name {
         display: none;
     }
-    
+
     .artist-song-mobile {
         display: block;
     }

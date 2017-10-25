@@ -16,6 +16,12 @@
     var currentBuzzObject = null;
 
     /**
+    * @desc Track if song has been muted so when next song is played it remains muted.
+    * @type Boolean
+    */
+    var mute = false;
+
+    /**
     * @function setSong
     * @desc Stops currently playing song and loads new audio file as currentBuzzObject
     * @param {object} song
@@ -37,6 +43,13 @@
       });
 
       SongPlayer.currentSong = song;
+
+      if(mute === false){
+        song.muted = false;
+      }else {
+        song.muted = true;
+        currentBuzzObject.toggleMute();
+      }
     };
 
     /**
@@ -142,6 +155,25 @@
         var song = currentAlbum.songs[currentSongIndex];
         setSong(song);
         playSong(song);
+      }
+    }
+
+    /**
+    * @function mute
+    * @desc Mute/Unmute song
+    */
+    SongPlayer.mute = function() {
+      var currentSongIndex = getSongIndex(SongPlayer.currentSong)
+      var song = currentAlbum.songs[currentSongIndex]
+
+      currentBuzzObject.toggleMute();
+
+      if(currentBuzzObject.isMuted()){
+        song.muted = true;
+        mute = true;
+      }else {
+        song.muted = false;
+        mute = false;
       }
     }
 
